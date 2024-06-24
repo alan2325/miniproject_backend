@@ -63,13 +63,25 @@ while True:
             for i in range(len(worker)):
                 if d==worker[i][0]:  
                     f=1
-                    del worker[i]       
+                    del worker[i]    
+                    print("Employee details succesfully deleted")   
                     break               
 
             if f==0:
                 print("ID not found")
             else:
-                print("Updated worker list:",worker)
+                print("Updated worker list :")
+                 
+                for i in worker:
+                    
+                    print()
+                    print("Employe ID is : ",i[0])
+                    print("Names of the employe :",i[1]) 
+                    print("Age is : ",i[2])
+                    print("Experience of employee : ",i[3])
+                    print("E-mail : ",i[4])
+                    print("Phone number : ",i[5])
+                    print()
 
     elif a==5:
             print("You had exited")

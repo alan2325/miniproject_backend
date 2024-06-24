@@ -20,11 +20,7 @@ while True:
 
 
     elif a==2:
-        # b=str(input("Enter the id of user to view : "))
-        # if b in worker:
-        #     print(worker)
-        # else:
-        #      print("Id not found")
+        
              
             for i in worker:
                 print("Details of employee : ")
@@ -59,20 +55,17 @@ while True:
         if f==0:
             print("ID not found")
                      
-            # new_id=(input("Enter new updation : "))
-            # pos=name.index(c)
-            # name[pos]=b
-                # print("Updation is : ",i)
-            # else:
-              
+       
 
-    # elif a==4:
-    #         d=str(input("Enter name needed to be deleted : "))
-    #         if d in name:
-    #             name.remove(d)
-    #             print("Deleted : ",name)
-    #         else:
-    #             print("Name not found")
+    elif a==4:
+            d=int(input("Enter ID needed to be deleted : "))
+            f=0
+            for i in (worker):
+                if d==i[0]:
+                    worker.remove(worker)
+                    # print("Deleted : ",name)
+            if f==0:
+                print("ID not found")
 
     elif a==5:
             print("You had exited")

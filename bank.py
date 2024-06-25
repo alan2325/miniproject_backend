@@ -6,9 +6,7 @@ while True:
     a=int(input("Enter your choice : "))
     
     
-# ['alal',21,'alal@gmail.com',1234567890,'asppwd'],
-#         ['blabla',33,'bla@.com',987654321,'psd']
-    
+
     if a==1:
        
         name=str(input("Enter your name : "))

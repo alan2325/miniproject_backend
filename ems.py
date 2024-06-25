@@ -58,19 +58,19 @@ while True:
        
 
     elif a==4:
-            d=int(input("Enter ID needed to be deleted: "))
+            d=int(input("Enter ID needed to be deleted : "))
             f=0
-            for i in range(len(worker)):
-                if d==worker[i][0]:  
+            for i in worker:
+                if d==i[0]:  
                     f=1
-                    del worker[i]    
-                    print("Employee details succesfully deleted")   
+                    worker.remove(i)   
+                    print("Employee details successfully deleted")   
                     break               
 
             if f==0:
                 print("ID not found")
             else:
-                print("Updated worker list :")
+                print("Updated worker list : ")
                  
                 for i in worker:
                     

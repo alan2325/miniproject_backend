@@ -7,8 +7,11 @@ while c>0:
     print(p)
     pos=p+1
     c-=1
-    # print(l.index(find))
-    # print(l.index(find,i+1))
+
+
+
+
+    # or
 # position=[]
 # for index in range(len(l)):
 #     if l[index] == find:

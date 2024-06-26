@@ -2,6 +2,8 @@ l=['abc','efg','abc']
 
 for str in l:
     reversed_string =''
-    for i in range(len(str)-1,-1,-1):
-        reversed_string += str[i]
+    for i in str:
+        reversed_string = i+reversed_string
     print(reversed_string)
+
+

@@ -104,7 +104,6 @@ while True:
                     admin_choice = int(input("Enter your choice: "))
                     
                     if admin_choice == 1:
-                        # Add a new student
                         reg = int(input("Enter register number: "))
                         name = input("Enter student name: ")
                         eng = int(input("Enter mark in English: "))
@@ -118,7 +117,6 @@ while True:
                         print(f"Student {name} added successfully!")
                     
                     elif admin_choice == 2:
-                        # View all students
                         print("\nAll Students' Marks:")
                         print("{:<10}{:<10}{:<10}{:<10}{:<10}{:<10}{:<10}".format("Register", "Name", "English", "Malayalam", "Maths", "Biology", "Physics", "Chemistry"))
                         print('_' * 70)
@@ -129,8 +127,8 @@ while True:
                         print("Admin logged out.")
                         break
                     
-                    else:
-                        print("Invalid choice. Please try again.")
+                    # else:
+                    #     print("Invalid choice. Please try again.")
 
 
         

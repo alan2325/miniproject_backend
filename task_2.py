@@ -7,7 +7,7 @@ data=[{'op':1,'uname':'cab1','pswd':987,'email':'cab1@gmail.com','pno':'12345670
 
 while True:
     # Display the menu
-    print("1.Regester \n2. Login \n3.Cancle")
+    print("1.Regester \n2.Login \n3.Cancle")
     choice = int(input("Enter your choice: "))
 
     if choice == 1:
@@ -38,7 +38,7 @@ while True:
         
         found = False
         for s in data:
-            if 1 == s[0] and uname == s[1] and pswd == s[2]:
+            if s['op'] == 2 and uname == s['uname'] and pswd == s[pswd]:
                         found = True
                         print("You have successfully logged in.")
                         
@@ -61,7 +61,7 @@ while True:
                             
                         
         
-            elif 2 == s[0] and uname == s[1] and pswd == s[2]:
+            elif s['op'] == 1 and uname == s['uname'] and pswd == s[pswd]:
                         found = True
                         print("You have successfully logged in.")
                         while True:

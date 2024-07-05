@@ -38,7 +38,7 @@ while True:
         
         found = False
         for s in data:
-            if op == 2 and uname == s[1] and pswd == s[2]:
+            if 1 == s[0] and uname == s[1] and pswd == s[2]:
                         found = True
                         print("You have successfully logged in.")
                         
@@ -61,7 +61,7 @@ while True:
                             
                         
         
-            elif op == 1 and uname == s[1] and pswd == s[2]:
+            elif 2 == s[0] and uname == s[1] and pswd == s[2]:
                         found = True
                         print("You have successfully logged in.")
                         while True:

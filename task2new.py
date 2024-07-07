@@ -73,13 +73,22 @@ while True:
                         
                         if u_choice == 1:
                             livloc = input("Share your current location: ")
+                            if entry['livloc'] == livloc:        #####live location of taxi
 
 
-                            
-                            headloc = input("Where do you want to go: ")
-                            time = input("Enter the time you want taxi to arrive: ")
-                            data.append({'livloc': livloc, 'headloc': headloc, 'time': time})
-                            print("Booking successful!")
+                                
+
+                                headloc = input("Where do you want to go: ")
+                                time = input("Enter the time you want taxi to arrive: ")
+                                data.append({'livloc': livloc, 'headloc': headloc, 'time': time})
+                                print("Booking successful!")
+                            else :
+                                ("Sorry,No taxi is avialable")
+
+
+
+
+
                         
                         elif u_choice == 2:
                             # Implement view details functionality

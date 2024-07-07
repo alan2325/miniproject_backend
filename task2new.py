@@ -52,7 +52,10 @@ while True:
                         
                         if cab_choice == 1:
                             # Implement view bookings functionality
-                            print("")
+                            print("User name : ")
+                            print("destination : ")
+                            print("Time of departure :")
+                            print("Earning : ")
                         
                         elif cab_choice == 2:
                             livloc = input("Share your current location: ")
@@ -76,7 +79,7 @@ while True:
                             if entry['livloc'] == livloc:        #####live location of taxi
 
 
-                                
+
 
                                 headloc = input("Where do you want to go: ")
                                 time = input("Enter the time you want taxi to arrive: ")

@@ -52,7 +52,7 @@ while True:
                         
                         if cab_choice == 1:
                             # Implement view bookings functionality
-                            print("Viewing bookings...")
+                            print("")
                         
                         elif cab_choice == 2:
                             livloc = input("Share your current location: ")
@@ -73,6 +73,9 @@ while True:
                         
                         if u_choice == 1:
                             livloc = input("Share your current location: ")
+
+
+                            
                             headloc = input("Where do you want to go: ")
                             time = input("Enter the time you want taxi to arrive: ")
                             data.append({'livloc': livloc, 'headloc': headloc, 'time': time})
@@ -90,7 +93,7 @@ while True:
                             print("Invalid input")
         
         if not found:
-            print("Invalid credentials. Please try again.")
+            print("Invalid inputs. Please try again.")
     
     elif choice == 3:
         print("Exiting...")

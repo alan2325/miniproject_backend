@@ -267,7 +267,7 @@
 
 
 data=[
-    {'ekm':20,'ktm':25,'vkm':23},
+
     {'op':1,'uname':'cab1','pswd':987,'email':'cab1@gmail.com','pno':'123456700','livloc':'ekm','tno':'kl5b123'},
     {'op':1,'uname':'cab2','pswd':876,'email':'cab2@gmail.com','pno':'998766789','livloc':'ktm','tno':'kl6b123'},
     {'op':1,'uname':'cab3','pswd':765,'email':'cab3@gmail.com','pno':'123467812','livloc':'vkm','tno':'kl7b123'},
@@ -275,6 +275,7 @@ data=[
     {'op':2,'uname':'user2','pswd':234,'email':'u2@gmail.com','pno':'987654321','livloc':'vkm','headloc':'ekm','time':'2pm'},
     {'op':2,'uname':'user3','pswd':345,'email':'u3@gmail.com','pno':'123454321','livloc':'ekm','headloc':'ktm','time':'3pm'},
 ]
+rate=[{'ekm':20,'ktm':25,'vkm':23}]
 
 while True:
     # Display the menu
@@ -369,7 +370,11 @@ while True:
                                     print(f"Taxi driver name: {driver['uname']}")
                                     print(f"Taxi driver number: {driver['pno']}")
                                     # Calculate fare based on distance
-                                    fare = abs(data[0][livloc] - data[0][headloc]) * 10  # Example fare calculation
+
+
+
+
+                                    fare = abs(rate[0][livloc] - rate[0][headloc]) * 10  # Example fare calculation
                                     print(f"Cab cost: ${fare}")
                                     
                                     cancel = int(input("1.Exit \n2.Cancel cab\nEnter your choice: "))

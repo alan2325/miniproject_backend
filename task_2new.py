@@ -55,7 +55,7 @@ while True:
                             for booking in data:
                                 if booking.get('livloc') == entry['livloc'] and 'headloc' in booking:
                                     fare = calculate_fare(booking['livloc'], booking['headloc'])
-                                    print(f"User name: {booking['uname']}\nDestination: {booking['headloc']}\nTime of departure: {booking['time']}\nFare: ${fare}\n")
+                                    print(f"User name: {booking['uname']}\nDestination: {booking['headloc']}\nYou need to arrive at the location at: {booking['time']}\nFare: ${fare}\n")
                         elif cab_choice == 2:
                             livloc = input("Share your current location: ")
                             entry['livloc'] = livloc

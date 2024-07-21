@@ -1,43 +1,68 @@
-from admin import admin_actions
-from user import register_user, passenger_actions
+donors = []
 
-def main():
-    print('METRO TICKET BOOKING')
-    users = [{'username': 's', 'phno': 123456, 'password': '123'}]
-    stations = {1: 'stationA', 2: 'stationB', 3: 'stationC', 4: 'stationD'}
-
-    while True:
-        print("\n1. Register\n2. Login\n3. Exit")
-        choice = int(input("Enter your choice: "))
-
-        if choice == 1:
-            register_user(users)
-
-        elif choice == 2:
-            choic = str(input('Enter type (admin / passenger): ')).strip().lower()
-
-            if choic == 'admin':
-                admin_name = input('Enter username: ')
-                admin_password = input('Enter password: ')
-                admin1 = {'username': 'admin', 'password': 'asdf'}
-
-                if admin_name == admin1['username'] and admin_password == admin1['password']:
-                        admin_actions(stations)
-                else:
-                    print("Invalid admin credentials!")
-
-            elif choic == 'passenger':
-                passenger_actions(users, stations)
-
-            else:
-                print("Invalid type! Choose between 'admin' or 'passenger'.")
-
-        elif choice == 3:
-            print("Exiting the program.")
-            break
-
+while True:
+    print("Blood Bank Management System")
+    print("1. Add Donor\n2. View Donors\n3. Update Donor\n4. Delete Donor\n5. Exit")
+    choice = input("Enter your choice: ")
+    
+    if choice == '1':
+        # while True:
+        #     donor_id = input("Enter Donor ID: ")
+        #     if (donor["id"] == donor_id for donor in donors):
+        #         print("Donor ID already exists. Please enter a unique ID.")
+        #     else:
+        #         break
+        donor_id = input("Enter Donor ID: ")
+        name = input("Enter Donor Name: ")
+        blood_group = input("Enter Blood Group: ")
+        contact = input("Enter Contact Number: ")
+        donors.append({"id": donor_id, "name": name, "blood_group": blood_group, "contact": contact})
+        print("Donor added successfully!\n")
+    
+    elif choice == '2':
+        if donors:
+            print("\n{:<10} {:<20} {:<15} {:<15}".format("ID", "Name", "Blood Group", "Contact"))
+            print("-" * 60)
+            for donor in donors:
+                print("{:<10} {:<20} {:<15} {:<15}".format(donor['id'], donor['name'], donor['blood_group'], donor['contact']))
+            print("")
         else:
-            print("Invalid choice! Please enter 1, 2, or 3.")
-
-if __name__ == "_main_":
-    main()
+            print("\nNo donors found!\n")
+    
+    elif choice == '3':
+        donor_id = input("Enter Donor ID to update: ")
+        for donor in donors:
+            if donor["id"] == donor_id:
+                print("Current Name: " + donor['name'])
+                new_name = input("Enter new name (leave blank to keep current): ")
+                donor["name"] = new_name or donor["name"]
+                
+                print("Current Blood Group: " + donor['blood_group'])
+                new_blood_group = input("Enter new blood group (leave blank to keep current): ")
+                donor["blood_group"] = new_blood_group or donor["blood_group"]
+                
+                print("Current Contact: " + donor['contact'])
+                new_contact = input("Enter new contact (leave blank to keep current): ")
+                donor["contact"] = new_contact or donor["contact"]
+                
+                print("Donor updated successfully!\n")
+                break
+        else:
+            print("Donor not found!\n")
+    
+    elif choice == '4':
+        donor_id = input("Enter Donor ID to delete: ")
+        for donor in donors:
+            if donor["id"] == donor_id:
+                donors.remove(donor)
+                print("Donor deleted successfully!\n")
+                break
+        else:
+            print("Donor not found!\n")
+    
+    elif choice == '5':
+        print("Exiting the system. Goodbye!")
+        break
+    
+    else:
+        print("Invalid choice! Please try again.\n")

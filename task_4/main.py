@@ -1,68 +1,60 @@
-donors = []
+from menu import display_menu
+from donor import add_donor, view_donors, update_donor, delete_donor,search_donors_by_name, search_donors_by_blood_group, display_search_results
+from auth import login
+from storage import initialize_storage
 
-while True:
-    print("Blood Bank Management System")
-    print("1. Add Donor\n2. View Donors\n3. Update Donor\n4. Delete Donor\n5. Exit")
-    choice = input("Enter your choice: ")
+def main():
+    initialize_storage()
+    if not login():
+        print("Login failed. Exiting the system.")
+        return
     
-    if choice == '1':
-        # while True:
-        #     donor_id = input("Enter Donor ID: ")
-        #     if (donor["id"] == donor_id for donor in donors):
-        #         print("Donor ID already exists. Please enter a unique ID.")
-        #     else:
-        #         break
-        donor_id = input("Enter Donor ID: ")
-        name = input("Enter Donor Name: ")
-        blood_group = input("Enter Blood Group: ")
-        contact = input("Enter Contact Number: ")
-        donors.append({"id": donor_id, "name": name, "blood_group": blood_group, "contact": contact})
-        print("Donor added successfully!\n")
-    
-    elif choice == '2':
-        if donors:
-            print("\n{:<10} {:<20} {:<15} {:<15}".format("ID", "Name", "Blood Group", "Contact"))
-            print("-" * 60)
-            for donor in donors:
-                print("{:<10} {:<20} {:<15} {:<15}".format(donor['id'], donor['name'], donor['blood_group'], donor['contact']))
-            print("")
+    while True:
+        display_menu()
+        choice = input("Enter your choice: ")
+        
+        if choice == '1':
+            add_donor()
+        elif choice == '2':
+            view_donors()
+           
+            while True:
+                print("\nBlood Bank Management System")
+                print("============================")
+                print("1. View All Donors")
+                print("2. Search Donor by Name")
+                print("3. Search Donor by Blood Group")
+                print("4. Exit")
+            
+                choice = input("Enter your choice: ")
+            
+                if choice == '1':
+                    view_donors()
+                elif choice == '2':
+                    name = input("Enter the donor name to search: ")
+                    results = search_donors_by_name(name)
+                    display_search_results(results)
+                elif choice == '3':
+                    blood_group = input("Enter the blood group to search: ")
+                    results = search_donors_by_blood_group(blood_group)
+                    display_search_results(results)
+                elif choice == '4':
+                    print("Exiting the system. Goodbye!")
+                    break
+                else:
+                    print("Invalid choice! Please try again.")
+
+
+
+        elif choice == '3':
+            update_donor()
+        elif choice == '4':
+            delete_donor()
+        elif choice == '5':
+            print("Exiting the system. Goodbye!")
+            break
         else:
-            print("\nNo donors found!\n")
-    
-    elif choice == '3':
-        donor_id = input("Enter Donor ID to update: ")
-        for donor in donors:
-            if donor["id"] == donor_id:
-                print("Current Name: " + donor['name'])
-                new_name = input("Enter new name (leave blank to keep current): ")
-                donor["name"] = new_name or donor["name"]
-                
-                print("Current Blood Group: " + donor['blood_group'])
-                new_blood_group = input("Enter new blood group (leave blank to keep current): ")
-                donor["blood_group"] = new_blood_group or donor["blood_group"]
-                
-                print("Current Contact: " + donor['contact'])
-                new_contact = input("Enter new contact (leave blank to keep current): ")
-                donor["contact"] = new_contact or donor["contact"]
-                
-                print("Donor updated successfully!\n")
-                break
-        else:
-            print("Donor not found!\n")
-    
-    elif choice == '4':
-        donor_id = input("Enter Donor ID to delete: ")
-        for donor in donors:
-            if donor["id"] == donor_id:
-                donors.remove(donor)
-                print("Donor deleted successfully!\n")
-                break
-        else:
-            print("Donor not found!\n")
-    
-    elif choice == '5':
-        print("Exiting the system. Goodbye!")
-        break
-    
-    else:
-        print("Invalid choice! Please try again.\n")
+            print("Invalid choice! Please try again.\n")
+
+if __name__ == "__main__":
+    main()

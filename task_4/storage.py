@@ -11,7 +11,7 @@ donors = [
     {"id": 10, "name": "Kathy Harris", "blood_group": "O-", "contact": "123-456-7899"}
 ]
 users = {
-    "admin": "password123"
+    "admin": "123"
 }
 
 def initialize_storage():

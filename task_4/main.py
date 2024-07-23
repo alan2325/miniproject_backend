@@ -1,10 +1,16 @@
 from menu import display_menu
 from donor import add_donor, view_donors, update_donor, delete_donor,search_donors_by_name, search_donors_by_blood_group, display_search_results
-from auth import login
+from auth import reg,login
 from storage import initialize_storage
 
 def main():
     initialize_storage()
+
+
+    
+
+
+
     if not login():
         print("Login failed. Exiting the system.")
         return

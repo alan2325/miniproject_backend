@@ -3,8 +3,8 @@ import mysql.connector
 def connect():
     return mysql.connector.connect(
         host="localhost",
-        user="your_username",
-        password="your_password",
+        user="alan",
+        password="alan2325",
         database="supermarket"
     )
 
@@ -82,12 +82,7 @@ def buy_product(product_id, quantity):
     conn.close()
 def main():
     while True:
-        print("\nSupermarket Management System")
-        print("1. Insert Product")
-        print("2. Update Product")
-        print("3. Delete Product")
-        print("4. Buy Product")
-        print("5. Exit")
+        print("\nSupermarket Management System\n1. Insert Product\n2. Update Product\n3. Delete Product\n4. Buy Product\n5. Exit")
         choice = input("Enter your choice: ")
 
         if choice == '1':
@@ -119,5 +114,4 @@ def main():
         else:
             print("Invalid choice. Please try again.")
 
-# if _name_ == "_main_":
 main()

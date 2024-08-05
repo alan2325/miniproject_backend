@@ -21,7 +21,7 @@ cursor.execute('''
 ''')
 
 while True:
-    print('\n1. Add product\n2. Update product\n3. Delete\n4. Search\n5. View all\n6. Exit')
+    print('\n1. Add product\n2. Update product\n3. Delete\n4. Search\n5. View all\n6. buy \n7. Exit')
     ch = int(input('Enter your choice: '))
     
     if ch == 1:
@@ -180,6 +180,13 @@ while True:
             print("No product found.")
 
     elif ch == 6:
+        ch=input("Enter the product name to by")
+        #buy product
+        #if the product is out of stock, print it is out of stock
+        #if it is avialable, input the quantity and calculate price
+        #show the product quantity after buying
+
+    elif ch == 7:
         break
 
     else:

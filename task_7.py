@@ -109,7 +109,7 @@ while True:
         if products:
             while True:
                 try:
-                    viewch = int(input('View by:\n1. Order\n2. Like\n3. Group By\n4. Exit\nEnter your choice: '))
+                    viewch = int(input('View by:\n1. Order\n2. Group By\n3. Exit\nEnter your choice: '))
 
                     if viewch == 1:
                         while True:
@@ -137,37 +137,37 @@ while True:
                             except ValueError:
                                 print("Invalid input. Please enter a valid number.")
 
+                    # elif viewch == 2:
+                    #     while True:
+                    #         try:
+                    #             print('Like by:\n1. ID\n2. Name\n3. Exit')
+                    #             lch = int(input('Enter your choice: '))
+
+                    #             if lch == 1:
+                    #                 ch = input('Enter ID pattern to search (e.g., "1"): ')
+                    #                 cursor.execute('SELECT * FROM product WHERE p_id LIKE %s ORDER BY price DESC', (f'%{ch}%',))
+                    #             elif lch == 2:
+                    #                 ch = input('Enter name pattern to search (e.g., "Bla"): ')
+                    #                 cursor.execute('SELECT * FROM product WHERE name LIKE %s ORDER BY price DESC', (f'%{ch}%',))
+                    #             elif lch == 3:
+                    #                 break
+                    #             else:
+                    #                 print("Invalid choice. Please try again.")
+                    #                 continue
+
+                    #             data = cursor.fetchall()
+                    #             print('{:<10}{:<20}{:<10}{:<10}'.format('ID', 'Name', 'Price', 'Quantity'))
+                    #             print('-' * 50)
+                    #             if data:
+                    #                 for row in data:
+                    #                     print("{:<10}{:<20}{:<10}{:<10}".format(row[0], row[1], row[2], row[3]))
+                    #             else:
+                    #                 print('No matching records found')
+
+                    #         except ValueError:
+                    #             print("Invalid input. Please enter a valid number.")
+
                     elif viewch == 2:
-                        while True:
-                            try:
-                                print('Like by:\n1. ID\n2. Name\n3. Exit')
-                                lch = int(input('Enter your choice: '))
-
-                                if lch == 1:
-                                    ch = input('Enter ID pattern to search (e.g., "1"): ')
-                                    cursor.execute('SELECT * FROM product WHERE p_id LIKE %s ORDER BY price DESC', (f'%{ch}%',))
-                                elif lch == 2:
-                                    ch = input('Enter name pattern to search (e.g., "Bla"): ')
-                                    cursor.execute('SELECT * FROM product WHERE name LIKE %s ORDER BY price DESC', (f'%{ch}%',))
-                                elif lch == 3:
-                                    break
-                                else:
-                                    print("Invalid choice. Please try again.")
-                                    continue
-
-                                data = cursor.fetchall()
-                                print('{:<10}{:<20}{:<10}{:<10}'.format('ID', 'Name', 'Price', 'Quantity'))
-                                print('-' * 50)
-                                if data:
-                                    for row in data:
-                                        print("{:<10}{:<20}{:<10}{:<10}".format(row[0], row[1], row[2], row[3]))
-                                else:
-                                    print('No matching records found')
-
-                            except ValueError:
-                                print("Invalid input. Please enter a valid number.")
-
-                    elif viewch == 3:
                         cursor.execute('SELECT name, MAX(price) AS max_price FROM product GROUP BY name')
                         data = cursor.fetchall()
                         print('{:<20}{:<10}'.format('Name', 'Max Price'))
@@ -177,7 +177,7 @@ while True:
                                 print("{:<20}{:<10}".format(row[0], row[1]))
                         else:
                             print('No data available')
-                    elif viewch == 4:
+                    elif viewch == 3:
                         break
                     else:
                         print("Invalid choice. Please try again.")
